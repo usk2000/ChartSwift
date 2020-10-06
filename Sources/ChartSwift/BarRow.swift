@@ -9,13 +9,13 @@ import SwiftUI
 
 public struct BarRow: View {
 
-    private var labelWidth: CGFloat
-    
+    @Environment(\.barHeight) var barHeight
+    @Environment(\.labelWidth) var labelWidth
+        
     private var item: ChartItem
     
-    public init(item: ChartItem, labelWidth: CGFloat = 75) {
+    public init(item: ChartItem) {
         self.item = item
-        self.labelWidth = labelWidth
     }
     
     public var body: some View {
@@ -28,7 +28,7 @@ public struct BarRow: View {
             ZStack {
                 Bar(percent: self.item.value, color: self.item.color)
                 BarText(percent: self.item.value, text: self.item.text)
-            }.frame(height: 30)
+            }.frame(height: self.barHeight)
 
         }
         

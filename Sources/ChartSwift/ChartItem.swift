@@ -22,3 +22,9 @@ public struct ChartItem {
     }
     
 }
+
+extension ChartItem: Identifiable {
+    public var id: String {
+        return title
+    }
+}

@@ -9,23 +9,18 @@ import SwiftUI
 
 public struct BarChart: View {
     
-    private var height: CGFloat = 25
+    private var items: [ChartItem]
     
-    public init() {}
+    public init(items: [ChartItem]) {
+        self.items = items
+    }
     
     public var body: some View {
-        GeometryReader { metrics in
-            VStack {
-                HStack {
-                    Text("title")
-                    Color.red
-                        .frame(maxWidth: .infinity)
-                        .frame(height: self.height)
-                }
+        VStack(spacing: 16) {
+            ForEach.init(items) { item in
+                BarRow.init(item: item)
+                    .padding(.horizontal, 16)
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: 200)
-            .background(Color.init(white: 0.9))
         }
 
     }

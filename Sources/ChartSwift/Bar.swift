@@ -12,7 +12,6 @@ public struct Bar: View {
     @Environment(\.barBackground) var barBackground
     
     private let corner: CGFloat = 4
-    private let offset: CGFloat = 60
     
     private var percent: CGFloat
     private var color: Color
