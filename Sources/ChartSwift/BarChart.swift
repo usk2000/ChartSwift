@@ -30,9 +30,3 @@ public struct BarChart: View {
 
     }
 }
-
-struct BarChart_Previews: PreviewProvider {
-    static var previews: some View {
-        BarChart()
-    }
-}

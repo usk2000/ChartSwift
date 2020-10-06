@@ -9,6 +9,8 @@ import SwiftUI
 
 public struct Bar: View {
     
+    @Environment(\.barBackground) var barBackground
+    
     private let corner: CGFloat = 4
     private let offset: CGFloat = 60
     
@@ -27,6 +29,6 @@ public struct Bar: View {
                     .frame(width: geometry.size.width * self.percent)
                     .cornerRadius(self.corner)
             }
-        }.background(Color.init(white: 0.9).cornerRadius(5))
+        }.background(self.barBackground.cornerRadius(5))
     }
 }

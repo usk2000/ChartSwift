@@ -26,17 +26,11 @@ public struct BarRow: View {
                     .frame(width: self.labelWidth, alignment: .trailing)
             }
             ZStack {
-                Bar(percent: self.item.value, color: self.item.color)                    
+                Bar(percent: self.item.value, color: self.item.color)
                 BarText(percent: self.item.value, text: self.item.text)
             }.frame(height: 30)
 
         }
         
-    }
-}
-
-struct BarRow_Previews: PreviewProvider {
-    static var previews: some View {
-        BarRow(item: .init(title: "タイトル", value: 0.8, text: "50%", color: .green))
     }
 }

@@ -20,9 +20,3 @@ public struct BarAxis: View {
     }
     
 }
-
-struct BarAxis_Previews: PreviewProvider {
-    static var previews: some View {
-        BarAxis(title: "text")
-    }
-}
