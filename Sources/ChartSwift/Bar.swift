@@ -10,6 +10,7 @@ import SwiftUI
 public struct Bar: View {
     
     private let corner: CGFloat = 4
+    private let offset: CGFloat = 60
     
     private var percent: CGFloat
     private var color: Color
@@ -21,16 +22,11 @@ public struct Bar: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            self.color
-                .frame(width: geometry.size.width * self.percent)
-                .cornerRadius(self.corner)
-        }
-    }
-}
-
-struct Bar_Previews: PreviewProvider {
-    static var previews: some View {
-        Bar(percent: 0.8, color: .green)
-            .previewLayout(.fixed(width: 320, height: 30))
+            ZStack {
+                self.color
+                    .frame(width: geometry.size.width * self.percent)
+                    .cornerRadius(self.corner)
+            }
+        }.background(Color.init(white: 0.9).cornerRadius(5))
     }
 }

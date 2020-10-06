@@ -31,7 +31,7 @@ public struct BarChart: View {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct BarChart_Previews: PreviewProvider {
     static var previews: some View {
         BarChart()
     }

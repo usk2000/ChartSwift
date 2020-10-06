@@ -9,28 +9,27 @@ import SwiftUI
 
 public struct BarRow: View {
 
-    private let labelWidth: CGFloat = 75
+    private var labelWidth: CGFloat
     
-    private var title: String
-    private var percent: CGFloat
-    private var color: Color
+    private var item: ChartItem
     
-    public init(title: String, percent: CGFloat, color: Color) {
-        self.title = title
-        self.percent = percent
-        self.color = color
+    public init(item: ChartItem, labelWidth: CGFloat = 75) {
+        self.item = item
+        self.labelWidth = labelWidth
     }
     
     public var body: some View {
         HStack(spacing: 8) {
             ZStack {
-                Text(self.title)
+                Text(self.item.title)
                     .font(.system(size: 12))
                     .frame(width: self.labelWidth, alignment: .trailing)
             }
-            Bar(percent: self.percent, color: self.color)
-                .frame(height: 30)
-                .background(Color.init(white: 0.9).cornerRadius(5))
+            ZStack {
+                Bar(percent: self.item.value, color: self.item.color)                    
+                BarText(percent: self.item.value, text: self.item.text)
+            }.frame(height: 30)
+
         }
         
     }
@@ -38,6 +37,6 @@ public struct BarRow: View {
 
 struct BarRow_Previews: PreviewProvider {
     static var previews: some View {
-        BarRow(title: "タイトル", percent: 0.8, color: .green)
+        BarRow(item: .init(title: "タイトル", value: 0.8, text: "50%", color: .green))
     }
 }
