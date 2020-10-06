@@ -12,7 +12,30 @@ public struct BandChart: View {
     public init() {}
     
     public var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { metrics in
+            ZStack {
+                VStack {
+                    Spacer()
+                    HStack(spacing: 0) {
+                        Color.red.frame(width: metrics.size.width * 0.25)
+                        Color.green.frame(width: metrics.size.width * 0.5)
+                        Color.blue.frame(width: metrics.size.width * 0.25)
+                    }.cornerRadius(4.0)
+                    .frame(height: 50)
+                    Spacer()
+                }
+
+                Path { path in
+                    path.move(to: .init(x: metrics.size.width * 0.125, y: 50))
+                    path.addLine(to: .init(x: metrics.size.width * 0.125, y: 75))
+                }.stroke(Color.black)
+                
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 200)
+            .background(Color.init(white: 0.9))
+        }
+
     }
 }
 
