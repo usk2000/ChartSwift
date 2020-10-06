@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct ChartItem {
+    let value: String
+    let text: String
+    let legend: String
+}
