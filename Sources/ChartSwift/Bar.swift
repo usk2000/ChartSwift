@@ -23,10 +23,11 @@ public struct Bar: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            ZStack {
+            HStack {
                 self.color
                     .frame(width: geometry.size.width * self.percent)
                     .cornerRadius(self.corner)
+                Spacer()
             }
         }.background(self.barBackground.cornerRadius(5))
     }
